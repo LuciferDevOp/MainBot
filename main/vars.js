@@ -30,7 +30,7 @@ const errorLogId = 21;
 const dbLink = process.env.dbLink;
 const userDbLink = process.env.userDbLink;
 
-// const token = process.env.token;
+const token = process.env.token;
 const github = {
     token,
     owner: "MdMobid"
