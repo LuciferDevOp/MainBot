@@ -1,9 +1,6 @@
 
 import fs from 'fs';
-import { getvars } from './main/vars.js';
-// import dotenv from 'dotenv';
-// dotenv.config();
-// const botToken = process.env.botToken;
+import { botToken } from './main/vars.js';
 
 function extractSubdomain(filePath) {
   const urlRegex = /https:\/\/([^.]+)\.trycloudflare\.com/;
@@ -27,7 +24,6 @@ function extractSubdomain(filePath) {
 }
 
 async function setWebhook(link) {
-  const botToken = await getvars();
   const response = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${link}/endpoint`);
   if (response.ok) {
     console.log("Webhook Setup Successful");
