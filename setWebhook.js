@@ -1,6 +1,7 @@
 
 import fs from 'fs';
 import { botToken } from "./main/vars.js";
+import { response } from 'express';
 
 function extractSubdomain(filePath) {
   const urlRegex = /https:\/\/([^.]+)\.trycloudflare\.com/;
@@ -25,6 +26,9 @@ function extractSubdomain(filePath) {
 
 async function setWebhook(link) {
     await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${link}/endpoint`);
+    if (response.ok) {
+      console.log("Webhook Setup Successful");
+    }
 }
 
 const filePath = 'output.txt';
