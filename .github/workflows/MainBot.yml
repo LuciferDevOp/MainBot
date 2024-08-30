@@ -30,6 +30,7 @@ jobs:
         npm install express
         npm install @octokit/rest
         npm install body-parser
+        npm install dotenv
       
     - name: Run Bot
       run: |
