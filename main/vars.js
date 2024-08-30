@@ -11,8 +11,8 @@ export async function getvars() {
     botToken = data.botToken;
     masterId = data.masterId;
     LogGroupId = data.LogGroupId;
-    dbLink = data.dbLink;
-    userDbLink = data.userDbLink;
+    dbLink = "https://mybot-md2-default-rtdb.firebaseio.com/botfather";
+    userDbLink = "https://mybot-md2-default-rtdb.firebaseio.com/userDbs";
     token = data.token;
     return botToken;
 }
