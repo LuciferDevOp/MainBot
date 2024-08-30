@@ -11,8 +11,8 @@ const startLogId = 12;
 const deployLogId = 19;
 const errorLogId = 21;
 
-const dbLink = "https://mybot-md2-default-rtdb.firebaseio.com/botfather";
-const userDbLink = "https://mybot-md2-default-rtdb.firebaseio.com/userDbs";
+const dbLink = process.env.dbLink;
+const userDbLink = process.env.userDbLink;
 
 const token = process.env.token;
 const github = {
