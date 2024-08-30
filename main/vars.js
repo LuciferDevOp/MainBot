@@ -2,16 +2,18 @@
 // import dotenv from 'dotenv';
 // dotenv.config();
 
+var botToken, masterId, LogGroupId, dbLink, userDbLink, token;
+
 async function getvars() {
     const URL = `https://mybot-md2-default-rtdb.firebaseio.com/mobotVars/.json`;
     const response = await fetch(URL);
     const data = await response.json();
-    const botToken = data.botToken;
-    const masterId = data.masterId;
-    const LogGroupId = data.LogGroupId;
-    const dbLink = data.dbLink;
-    const userDbLink = data.userDbLink;
-    const token = data.token;
+    botToken = data.botToken;
+    masterId = data.masterId;
+    LogGroupId = data.LogGroupId;
+    dbLink = data.dbLink;
+    userDbLink = data.userDbLink;
+    token = data.token;
 }
 
 getvars();
@@ -34,4 +36,4 @@ const github = {
     owner: "MdMobid"
 };
 
-export { botToken, masterId, LogGroupId, channels, startLogId, deployLogId, errorLogId, dbLink, userDbLink, github };
+export { botToken, masterId, LogGroupId, channels, startLogId, deployLogId, errorLogId, dbLink, userDbLink, github }
