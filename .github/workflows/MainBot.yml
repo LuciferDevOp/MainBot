@@ -1,0 +1,42 @@
+name: Start Bot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */5 * * *'
+
+jobs:
+  StartBot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 310
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y curl wget
+
+    - name: Download cloudflared installer
+      run: |
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -O cloudflared.deb
+
+    - name: Install cloudflared
+      run: |
+        sudo dpkg -i cloudflared.deb
+
+    - name: Install Express
+      run: |
+        npm install express
+        npm install @octokit/rest
+        npm install body-parser
+      
+    - name: Run Bot
+      run: |
+        cloudflared tunnel --url http://localhost:8080 > output.txt 2>&1 &
+        sleep 10
+        node setWebhook.js &
+        npm run start &
+        sleep 18300
+        echo "Workflow Completed"
+        
