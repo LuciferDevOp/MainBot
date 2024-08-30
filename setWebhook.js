@@ -1,7 +1,6 @@
 
 import fs from 'fs';
 import { botToken } from "./main/vars.js";
-import { response } from 'express';
 
 function extractSubdomain(filePath) {
   const urlRegex = /https:\/\/([^.]+)\.trycloudflare\.com/;

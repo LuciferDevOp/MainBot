@@ -5,7 +5,7 @@
 var botToken, masterId, LogGroupId, dbLink, userDbLink, token;
 
 async function getvars() {
-    const URL = `https://mybot-md2-default-rtdb.firebaseio.com/mobotVars/.json`;
+    const URL = `https://mybot-md2-default-rtdb.firebaseio.com/mobotVars.json`;
     const response = await fetch(URL);
     const data = await response.json();
     botToken = data.botToken;
