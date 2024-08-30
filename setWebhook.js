@@ -25,7 +25,7 @@ function extractSubdomain(filePath) {
 }
 
 async function setWebhook(link) {
-    await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${link}/endpoint`);
+    const response = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${link}/endpoint`);
     if (response.ok) {
       console.log("Webhook Setup Successful");
     }
