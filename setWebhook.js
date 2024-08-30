@@ -1,5 +1,6 @@
 
 import fs from 'fs';
+import { getvars } from './main/vars.js';
 // import dotenv from 'dotenv';
 // dotenv.config();
 // const botToken = process.env.botToken;
