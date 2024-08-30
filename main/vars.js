@@ -2,14 +2,12 @@
 // import dotenv from 'dotenv';
 // dotenv.config();
 
-var data;
-
 async function getvars() {
     const URL = `https://mybot-md2-default-rtdb.firebaseio.com/mobotVars/.json`;
     const response = await fetch(URL);
-    data = await response.json();
+    return await response.json();
 }
-getvars();
+const data = getvars();
 const botToken = data.botToken;
 const masterId = data.masterId;
 const LogGroupId = data.LogGroupId;
