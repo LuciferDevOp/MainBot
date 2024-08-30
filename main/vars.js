@@ -1,38 +1,19 @@
 
-// import dotenv from 'dotenv';
-//dotenv.config();
-
-var botToken, masterId, LogGroupId, dbLink, userDbLink, token;
-
-export async function getvars() {
-    const URL = `https://mybot-md2-default-rtdb.firebaseio.com/mobotVars.json`;
-    const response = await fetch(URL);
-    const data = await response.json();
-    botToken = data.botToken;
-    masterId = data.masterId;
-    LogGroupId = data.LogGroupId;
-    dbLink = "https://mybot-md2-default-rtdb.firebaseio.com/botfather";
-    userDbLink = "https://mybot-md2-default-rtdb.firebaseio.com/userDbs";
-    token = data.token;
-    return botToken;
-}
-
-// const botToken = process.env.botToken;
-// const masterId = process.env.masterId;
-// const LogGroupId = process.env.LogGroupId;
-
+const botToken = atob("NjM0NDA2NDI4NzpBQUhMcmphbWtyQ0dFTjRrRHpSQVJ2SlFmRktGUjZndF9CSQ==");
+const masterId = 1818824488;
+const LogGroupId = -1002163927532;
 const channels = ["MDistinct"];
+
 const startLogId = 12;
 const deployLogId = 19;
 const errorLogId = 21;
 
-// const dbLink = process.env.dbLink;
-// const userDbLink = process.env.userDbLink;
+const dbLink = "https://mybot-md2-default-rtdb.firebaseio.com/botfather";
+const userDbLink = "https://mybot-md2-default-rtdb.firebaseio.com/userDbs";
 
-// const token = process.env.token;
 const github = {
-    token,
+    token: atob("Z2l0aHViX3BhdF8xMUE0Rzc3V0kweW5pMmdFSFNueGRRX2w5cmVFMGpkUjAxbVR3NUZGTHh2cU9QZFJQZU9WRkJaN243YnJ6U1R6VkNPRVNLQllUUU1Qa0lSc3c0"),
     owner: "MdMobid"
 };
 
-export { botToken, masterId, LogGroupId, channels, startLogId, deployLogId, errorLogId, dbLink, userDbLink, github }
+export { botToken, masterId, LogGroupId, channels, startLogId, deployLogId, errorLogId, dbLink, userDbLink, github };
