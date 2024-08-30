@@ -1,8 +1,8 @@
 
 import fs from 'fs';
-import dotenv from 'dotenv';
-dotenv.config();
-const botToken = process.env.botToken;
+// import dotenv from 'dotenv';
+// dotenv.config();
+// const botToken = process.env.botToken;
 
 function extractSubdomain(filePath) {
   const urlRegex = /https:\/\/([^.]+)\.trycloudflare\.com/;
@@ -26,12 +26,13 @@ function extractSubdomain(filePath) {
 }
 
 async function setWebhook(link) {
-    const response = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${link}/endpoint`);
-    if (response.ok) {
-      console.log("Webhook Setup Successful");
-    } else {
-      console.log("Webhook Setup Failed");
-    }
+  const botToken = await getvars();
+  const response = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${link}/endpoint`);
+  if (response.ok) {
+    console.log("Webhook Setup Successful");
+  } else {
+    console.log("Webhook Setup Failed");
+  }
 }
 
 const filePath = 'output.txt';
